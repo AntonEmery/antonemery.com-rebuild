@@ -1,0 +1,17 @@
+.icon {
+  margin: .25rem .25rem;
+  width: var(--icon-size);
+  height: var(--icon-size);
+
+  &--16 {
+    --icon-size: 1rem;
+  }
+
+  &--24 {
+    --icon-size: 1.5rem;
+  }
+
+  &--32 {
+    --icon-size: 2rem;
+  }
+}

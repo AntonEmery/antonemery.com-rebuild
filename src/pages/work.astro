@@ -1,0 +1,145 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const jobs = [
+  {
+    company: 'Rivermeadow',
+    fullName: 'Rivermeadow Workload Mobility Platform',
+    title: 'Senior Front-End Developer',
+    period: 'Dec 2024 – Present',
+    detail: 'Remote',
+    current: true,
+    bullets: [
+      'Project lead migrating a 10-year-old front end codebase from Backbone to React',
+      'Migrated legacy Grunt build system to Webpack, enabling modern bundling and development features',
+      'Integrate RTK Query for efficient data fetching and state management, improving performance and developer experience',
+      'Refactored Sass styles to be scoped by component, improving maintainability and organization',
+      'Integrated Ant Design component library and collaborated with Design on a new design system',
+      'Mentored new engineers and interns, establishing best practices for code quality and development workflow',
+    ],
+    stack: ['React', 'Backbone', 'RTK Query', 'Webpack', 'Sass', 'JavaScript'],
+  },
+  {
+    company: 'HiringThing',
+    fullName: 'HiringThing — HR platform for hiring & recruitment',
+    title: 'Software Engineer / Full-Stack Developer',
+    period: 'Jun 2022 – Jul 2024',
+    detail: 'Remote',
+    current: false,
+    bullets: [
+      'Build new user facing features using React, Redux, RTK Query, and Rails',
+      'Led front-end development integrating ChatGPT for an AI-powered resume analysis feature',
+      'Built and maintained a robust Storybook component library from Figma specs',
+      'Founded an Engineer in Training program, mentoring employees from other departments who wanted to transition into engineering roles',
+    ],
+    stack: [
+      'React',
+      'Redux',
+      'RTK-Query',
+      'TypeScript',
+      'Storybook',
+      'Rails',
+      'Jest',
+      'Cypress',
+    ],
+  },
+  {
+    company: 'BeFunky',
+    fullName: 'BeFunky — Online photo editor & graphic design app',
+    title: 'Front-End Software Engineer',
+    period: 'Oct 2018 – Jun 2022',
+    detail: 'On-site',
+    current: false,
+    bullets: [
+      "Build out new features for the company's flagship graphic design web application",
+      'Update components to use Lit-html, improving reusability and maintainability',
+      'Refactored the web app for responsive display and native mobile download',
+      'Built a static site generator with Prismic CMS driving both the product site and blog',
+    ],
+    stack: ['Lit-html', 'JavaScript', 'Node.js', 'Express', 'Metalsmith'],
+  },
+  {
+    company: 'Spiffy',
+    fullName: 'Spiffy — Online Point of Sale platform',
+    title: 'Web Developer',
+    period: 'Oct 2017 – Apr 2018',
+    detail: 'Remote · Contract',
+    current: false,
+    bullets: [
+      'Developed front end for a seamless, WYSIWYG, drop-in shopping cart and analytics system',
+      'Built a robust testing environment using Mocha and Chai',
+    ],
+    stack: ['Mithril.js', 'JavaScript', 'SCSS', 'HTML'],
+  },
+];
+---
+
+<Layout
+  title='Anton Emery | Work Experience'
+  description='Work experience and career history of Anton Emery, Web Developer based in Portland, Oregon.'
+  keywords='front end developer, react, typescript, work experience, portfolio, portland'
+>
+  <div class='page-header'>
+    <div class='page-header__inner'>
+      <p class='section-label'>Career History</p>
+      <h1 class='page-header__title'>Work</h1>
+    </div>
+  </div>
+
+  <main class='work-main'>
+    <div class='work-main__inner'>
+      <div class='timeline'>
+        {
+          jobs.map((job, i) => (
+            <article
+              class={`timeline__entry${
+                job.current ? ' timeline__entry--current' : ''
+              }`}>
+              <div class='timeline__marker'>
+                <div class='timeline__dot' />
+                {i < jobs.length - 1 && <div class='timeline__line' />}
+              </div>
+              <div class='timeline__content'>
+                <div class='timeline__meta'>
+                  <span class='timeline__period'>{job.period}</span>
+                  {job.current && <span class='current-badge'>Current</span>}
+                  <span class='timeline__detail'>{job.detail}</span>
+                </div>
+                <h2 class='timeline__company'>{job.company}</h2>
+                <p class='timeline__full-name'>{job.fullName}</p>
+                <p class='timeline__title'>{job.title}</p>
+                <ul class='timeline__bullets'>
+                  {job.bullets.map((b) => (
+                    <li>{b}</li>
+                  ))}
+                </ul>
+                <div class='timeline__stack'>
+                  {job.stack.map((t) => (
+                    <span class='tag'>{t}</span>
+                  ))}
+                </div>
+              </div>
+            </article>
+          ))
+        }
+
+        <!-- Previous Experience -->
+        <div class='prev-exp'>
+          <h3 class='prev-exp__title'>Previous Experience</h3>
+          <div class='prev-exp__items'>
+            <div class='prev-exp__item'>
+              <span class='prev-exp__company'>Black Box CRM</span>
+              <span class='prev-exp__role'>Web Developer</span>
+            </div>
+            <div class='prev-exp__item'>
+              <span class='prev-exp__company'>Concordia University</span>
+              <span class='prev-exp__role'
+                >Blackboard Instructional Technologist</span
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</Layout>

@@ -1,0 +1,18 @@
+.section__figure {
+  display: flex;
+  justify-content: center;
+  .figure {
+    text-align: center;
+    display: inline-block;
+
+    @media (max-width: $mobile-upper-limit) {
+      margin-left: 0;
+      margin-right: 0;
+    }
+
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+}

@@ -1,0 +1,76 @@
+Anton Emery
+Full Stack Web Developer
+CONTACT
+ antonemery@gmail.com
+
+STRENGTHS
+Remote Mentor
+I love creating exhaustive documentation and collaborating with my team.
+Motivated Learner
+I have confidence in my ability to self-train and proactively problem solve.
+Attention to Detail
+I take pride in precisely matching design specs and testing edge cases thoroughly.
+Soft Skills
+I bring positivity and composure to every team interaction.
+
+TOOLS
+
+Task management 	Jira, Linear
+Documentation	Confluence
+Preferred IDE	VS Code
+AI integration	Copilot, ChatGPT
+Versioning	Git
+Collaboration	Slack, Zoom
+Error tracking	Sentry, Airbrake
+Error logging	Datadog
+
+EDUCATION
+Florida State University
+Bachelor of Science
+Information Technology
+Tallahassee, FL
+
+SOCIAL
+ LinkedIn	 Github
+ celticfingerstyleguitar.com
+
+
+SUMMARY
+Self-taught from an IT education, I thrive in environments that expect a high degree of personal ownership and agency. I have a reputation for patience and gumption, and I seek out and support those qualities in my teammates. I love working on “the back of the front end” - Building and maintaining a pixel-perfect, flexible, and heavily-tested library of design components.
+EXPERIENCE
+Senior Front End Developer
+Rivermeadow Workload Mobility Platform
+Dec 2024 - present   10 devs | Remote |
+Front End Migration - Led project to migrate 10 year old front end stack from Backbone to React
+Improve Javascript Tooling - Migrated legacy Grunt build system to Webpack, allowing us to bundle React code
+CSS Refactor - Refactor Sass styles to be scoped by component, improving maintainability and organization.
+UI Update - Integrate Ant Design Component Library and work with Design dept to build out a design system.
+ React | Backbone | Webpack   Sass | Javascript
+Software Engineer / Full Stack Developer
+HiringThing HR platform for hiring & recruitment
+June 2022 - July 2024 (staff reduction)   10 devs | Remote |
+AI Resume Analysis Feature - Led front end development integrating ChatGPT
+Applicant Tracking Software (ATS) feature - Developed both back & front end; implemented tests using Jest & Cypress
+Storybook Design System - Working from Figma specs, designed and maintained a robust library of components
+Engineer in Training Program - Created our EIT documentation and provided mentorship and guidance
+ React | Redux | RTK-Query   Typescript | Storybook   Rails |
+Front End Software Engineer
+BeFunky Online photo editor & graphic design app
+Oct 2018 - June 2022   5 devs On-site
+Feature Development - Refactored and created library of localizable web components
+Mobile App Deployment - Refactored web app for responsive display & native download on mobile devices
+Performance and Maintainability Refactor - Built static site generator with Prismic CMS to drive both product site & blog
+ Lit-html | Javascript | Node + Express | Metalsmith |
+Web Developer
+Spiffy.co Online Point of Sale platform
+Oct 2017 - Apr 2018 (staff reduction)  3 devs   Remote
+Shopping Cart and Analytics System - Developed front end for a seamless, WYSIWYG, drop-in experience
+Robust Testing Environment - Created using Mocha and Chai
+Mithril.js |  Javascript | SCSS | HTML |
+Previous Experience
+Web Developer - Black Box CRM
+Blackboard Instructional Technologist - Concordia University
+
+
+
+

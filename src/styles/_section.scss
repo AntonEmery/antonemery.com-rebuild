@@ -1,0 +1,24 @@
+.section {
+
+  --background-img-top-position: calc(-1 * var(--site-nav-height));
+  width: 100%;
+  position: relative;
+
+  .hero-image {
+    position: relative;
+    left: 0;
+    z-index: -2;
+
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+}
+
+.section-divider {
+  width: 100%;
+  height: 1px;
+  background-color: var(--divider-color);
+  margin: 0 auto;
+}

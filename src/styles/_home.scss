@@ -1,0 +1,309 @@
+// ── Hero ─────────────────────────────────────────────────────────────────────
+
+.hero {
+  min-height: calc(100vh - var(--site-nav-height));
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 5rem 2rem;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(
+      ellipse 70% 70% at 78% 50%,
+      rgba(200, 151, 58, 0.05) 0%,
+      transparent 70%
+    );
+    pointer-events: none;
+  }
+}
+
+.hero__inner {
+  max-width: var(--site-content-width);
+  margin: 0 auto;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+
+  @media (max-width: #{$mobile-nav-footer-breakpoint}) {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+}
+
+.hero__name {
+  font-size: var(--font-size-display);
+  font-weight: 800;
+  line-height: var(--line-height-tight);
+  letter-spacing: -0.035em;
+  color: var(--color-text);
+  margin-bottom: 2rem;
+  margin-top: 0.5rem;
+}
+
+.hero__summary {
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-relaxed);
+  color: var(--color-text-muted);
+  max-width: 44ch;
+  margin-bottom: 2.5rem;
+}
+
+.hero__cta {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+// Hero photo
+.hero__photo {
+  @media (max-width: #{$mobile-nav-footer-breakpoint}) {
+    order: -1;
+  }
+}
+
+.hero__photo-frame {
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-card);
+
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: var(--radius-lg);
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+    pointer-events: none;
+  }
+
+  img {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+}
+
+// Scroll indicator
+.hero__scroll {
+  position: absolute;
+  bottom: 2.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+
+  span {
+    font-family: var(--font-mono);
+    font-size: var(--font-size-xs);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-text-subtle);
+  }
+
+  @media (max-width: 600px) {
+    display: none;
+  }
+}
+
+.scroll-line {
+  width: 1px;
+  height: 40px;
+  background: linear-gradient(to bottom, var(--color-accent), transparent);
+  animation: linePulse 2.4s ease-in-out infinite;
+}
+
+@keyframes linePulse {
+  0%, 100% { opacity: 0.2; }
+  50%       { opacity: 1; }
+}
+
+// ── Info row (Looking For + Stack) ───────────────────────────────────────────
+
+.info-row {
+  border-top: 1px solid var(--color-border);
+  padding: 5rem 2rem;
+}
+
+.info-row__inner {
+  max-width: var(--site-content-width);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: 4rem;
+  align-items: start;
+
+  @media (max-width: #{$mobile-nav-footer-breakpoint}) {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+}
+
+.looking-for__body {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+
+  p {
+    font-size: var(--font-size-base);
+    line-height: var(--line-height-relaxed);
+    color: var(--color-text-muted);
+    margin: 0;
+  }
+}
+
+.stack-section__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+// ── Recent Work ───────────────────────────────────────────────────────────────
+
+.recent-work {
+  padding: 1rem 2rem 5rem;
+  border-top: 1px solid var(--color-border);
+}
+
+.recent-work__inner {
+  max-width: var(--site-content-width);
+  margin: 0 auto;
+  padding-top: 4rem;
+}
+
+.recent-work__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+  gap: 1rem;
+}
+
+.see-all {
+  font-family: var(--font-body);
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+  color: var(--color-text-muted);
+  white-space: nowrap;
+  margin-top: 2px;
+
+  &:hover { color: var(--color-accent); }
+}
+
+.recent-work__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+
+  @media (max-width: 700px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+// Job card
+.job-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 1.75rem;
+  transition: border-color var(--transition);
+
+  &:hover {
+    border-color: var(--color-accent-dim);
+  }
+}
+
+.job-card__meta {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.875rem;
+  flex-wrap: wrap;
+}
+
+.job-card__date {
+  font-family: var(--font-mono);
+  font-size: var(--font-size-xs);
+  color: var(--color-text-subtle);
+}
+
+.job-card__badge {
+  background: var(--color-accent-dim);
+  color: var(--color-accent);
+  font-family: var(--font-mono);
+  font-size: var(--font-size-xs);
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 0.2rem 0.5rem;
+  border-radius: 2px;
+}
+
+.job-card__company {
+  font-family: var(--font-display);
+  font-size: var(--font-size-md);
+  font-weight: 700;
+  color: var(--color-text);
+  margin-bottom: 0.2rem;
+}
+
+.job-card__role {
+  font-size: var(--font-size-sm);
+  color: var(--color-accent);
+  margin-bottom: 1rem;
+  font-weight: 500;
+}
+
+.job-card__desc {
+  font-size: var(--font-size-sm);
+  line-height: var(--line-height-normal);
+  color: var(--color-text-muted);
+  margin-bottom: 1.25rem;
+}
+
+.job-card__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+// ── Contact CTA ───────────────────────────────────────────────────────────────
+
+.contact-cta {
+  background: var(--color-surface);
+  border-top: 1px solid var(--color-border);
+  padding: 6rem 2rem;
+}
+
+.contact-cta__inner {
+  max-width: 620px;
+  margin: 0 auto;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.contact-cta__heading {
+  font-size: var(--font-size-xxl);
+  font-weight: 800;
+  margin-bottom: 1.25rem;
+}
+
+.contact-cta__body {
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-relaxed);
+  color: var(--color-text-muted);
+  margin-bottom: 2.5rem;
+  max-width: 46ch;
+}

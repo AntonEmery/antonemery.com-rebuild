@@ -1,0 +1,21 @@
+---
+import { Image } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+
+interface Props {
+  sectionClassName: string;
+  imagePath: string;
+  altText: string;
+}
+
+const { sectionClassName, imagePath, altText } = Astro.props;
+const images = import.meta.glob<{ default: ImageMetadata }>(
+  '/src/assets/*.{jpeg,jpg,png,gif}',
+);
+---
+
+<main class=`section section--${sectionClassName}` data-header>
+  <div class='hero-image'>
+    <Image src={images[imagePath]()} alt={altText} loading='eager' />
+  </div>
+</main>

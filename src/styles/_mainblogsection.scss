@@ -1,0 +1,22 @@
+.blog-post-wrapper {
+  width: 100%;
+  background-color: var(--blog-post-background);
+  margin-bottom: 1rem;
+  padding: 1rem 0;
+}
+
+.main-blog-section {
+  max-width: var(--blog-content-width);
+  margin: var(--main-section-margin);
+  min-height: var(--section-min-height);
+
+  .post-preview {
+    display: inline;
+  }
+}
+
+@container site-root-container (width <= 1232px) {
+  .main-blog-section {
+    padding: 0 1.5rem;
+  }
+}

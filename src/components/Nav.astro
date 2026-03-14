@@ -1,0 +1,74 @@
+---
+import MobileNav from './MobileNav.astro';
+import { parseHref } from '../lib/helpers.js';
+
+const pathname = new URL(Astro.request.url).pathname;
+const currentPath = pathname.slice(1);
+
+interface MenuLink {
+  name: string;
+  href: string;
+}
+
+const menuLinks: MenuLink[] = [
+  { name: 'Home', href: '/' },
+  { name: 'Work', href: '/work/' },
+  { name: 'About', href: '/about/' },
+];
+---
+
+<header class='site-nav'>
+  <nav class='nav'>
+    <a href='/' class='nav-home-link'>Anton <span class='accent'>Emery</span></a>
+    <div class='nav__main'>
+      {
+        menuLinks.map((link) => (
+          <a
+            class={currentPath === parseHref(link) ? 'active' : ''}
+            href={link.href}>
+            {link.name}
+          </a>
+        ))
+      }
+    </div>
+    <div class='nav__actions'>
+      <button class='nav__theme-toggle' aria-label='toggle color theme' type='button'>
+        <!-- Sun icon — shown in dark mode (switch to light) -->
+        <svg class='icon-sun' viewBox='0 0 24 24' aria-hidden='true'>
+          <circle cx='12' cy='12' r='5'></circle>
+          <line x1='12' y1='1' x2='12' y2='3'></line>
+          <line x1='12' y1='21' x2='12' y2='23'></line>
+          <line x1='4.22' y1='4.22' x2='5.64' y2='5.64'></line>
+          <line x1='18.36' y1='18.36' x2='19.78' y2='19.78'></line>
+          <line x1='1' y1='12' x2='3' y2='12'></line>
+          <line x1='21' y1='12' x2='23' y2='12'></line>
+          <line x1='4.22' y1='19.78' x2='5.64' y2='18.36'></line>
+          <line x1='18.36' y1='5.64' x2='19.78' y2='4.22'></line>
+        </svg>
+        <!-- Moon icon — shown in light mode (switch to dark) -->
+        <svg class='icon-moon' viewBox='0 0 24 24' aria-hidden='true'>
+          <path d='M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z'></path>
+        </svg>
+      </button>
+      <button class='nav__hamburger' aria-label='toggle nav menu'>
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+</header>
+
+<MobileNav menuLinks={menuLinks} />
+
+<div class='site-nav-placeholder'></div>
+
+<script>
+  const toggle = document.querySelector('.nav__theme-toggle');
+  toggle?.addEventListener('click', () => {
+    const html = document.documentElement;
+    const next = html.dataset.theme === 'dark' ? 'light' : 'dark';
+    html.dataset.theme = next;
+    localStorage.setItem('theme', next);
+  });
+</script>

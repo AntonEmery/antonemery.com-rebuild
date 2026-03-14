@@ -1,0 +1,158 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { Image } from 'astro:assets';
+import heroPhoto from '../assets/main-hero-img.png';
+
+const stack = [
+  'React',
+  'TypeScript',
+  'Sass / CSS',
+  'Redux',
+  'RTK-Query',
+  'Jest + Cypress',
+  'Storybook',
+  'Webpack',
+  'Node.js',
+  'Rails',
+  'Git',
+];
+---
+
+<Layout
+  title='Anton Emery | Web Developer'
+  description='Web Developer specializing in React, TypeScript, and component libraries. Based in Portland, Oregon.'
+  keywords='web developer, react, typescript, design systems, portland, oregon'
+>
+  <!-- Hero -->
+  <section class='hero'>
+    <div class='hero__inner'>
+      <div class='hero__content'>
+        <p class='section-label'>Web Developer</p>
+        <h1 class='hero__name'>Anton<br />Emery</h1>
+        <p class='hero__summary'>
+          Web developer with deep roots in front-end architecture. I modernize
+          legacy systems, build and maintain component libraries, and write
+          thoughtful, well-structured code.
+        </p>
+        <div class='hero__cta'>
+          <a href='/work/' class='btn btn--primary'>View Work</a>
+          <a href='mailto:antonemery@gmail.com' class='btn btn--outline'
+            >Get in Touch</a
+          >
+        </div>
+      </div>
+      <div class='hero__photo'>
+        <div class='hero__photo-frame'>
+          <Image src={heroPhoto} alt='Anton Emery' width={480} height={560} />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Looking For + Stack -->
+  <div class='info-row'>
+    <div class='info-row__inner'>
+      <section class='looking-for'>
+        <p class='section-label'>What I'm Looking For</p>
+        <div class='looking-for__body'>
+          <p>
+            I'm currently open to new opportunities, and I'm especially
+            interested in roles where I can bring my full range of skills to
+            bear, from modernizing legacy systems to building out component
+            libraries and design systems from the ground up. I thrive on the
+            kind of work that sits at the intersection of technical rigor and
+            user experience: code that's well-architected under the hood and
+            feels effortless to use.
+          </p>
+          <p>
+            One thing that would make the work genuinely exciting: music. I've
+            been playing folk and roots music for years. Celtic, old time,
+            bluegrass, and folk across a handful of instruments. The overlap
+            between how I think about music and how I think about software is
+            real. Both reward attention to detail, careful structure, and a
+            sensitivity to how small decisions compound into something larger.
+            If you're building software for musicians, instruments, or music
+            technology, I'd love to talk. Whether it's a DAW, a gear platform, a
+            music education tool, or anything in between. I'd bring not just my
+            engineering experience, but a player's perspective on what musicians
+            actually need from the tools they use.
+          </p>
+        </div>
+      </section>
+
+      <section class='stack-section'>
+        <p class='section-label'>Tech Stack</p>
+        <div class='stack-section__chips'>
+          {stack.map((tech) => <span class='chip'>{tech}</span>)}
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <!-- Recent Work Preview -->
+  <section class='recent-work'>
+    <div class='recent-work__inner'>
+      <div class='recent-work__header'>
+        <p class='section-label'>Recent Work</p>
+        <a href='/work/' class='see-all'>All Experience &#8594;</a>
+      </div>
+      <div class='recent-work__grid'>
+        <article class='job-card'>
+          <div class='job-card__meta'>
+            <span class='job-card__date'>Dec 2024 &#8211; Present</span>
+            <span class='job-card__badge'>Current</span>
+          </div>
+          <h3 class='job-card__company'>Rivermeadow</h3>
+          <p class='job-card__role'>Senior Front-End Developer</p>
+          <p class='job-card__desc'>
+            Leading front-end migration from Backbone to React, modernizing the
+            build toolchain with Webpack, and building a component library with
+            Ant Design.
+          </p>
+          <div class='job-card__tags'>
+            {
+              ['React', 'RTK Query', 'Backbone', 'Webpack', 'Sass'].map((t) => (
+                <span class='tag'>{t}</span>
+              ))
+            }
+          </div>
+        </article>
+        <article class='job-card'>
+          <div class='job-card__meta'>
+            <span class='job-card__date'>Jun 2022 &#8211; Jul 2024</span>
+          </div>
+          <h3 class='job-card__company'>HiringThing</h3>
+          <p class='job-card__role'>Software Engineer / Full-Stack Developer</p>
+          <p class='job-card__desc'>
+            Built new features with React and Rails. Led front-end development
+            for an AI resume analysis feature, and started an Engineer In
+            Training program.
+          </p>
+          <div class='job-card__tags'>
+            {
+              ['React', 'TypeScript', 'Storybook', 'Rails', 'Jest'].map((t) => (
+                <span class='tag'>{t}</span>
+              ))
+            }
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact CTA -->
+  <section class='contact-cta'>
+    <div class='contact-cta__inner'>
+      <p class='section-label'>Open to opportunities</p>
+      <h2 class='contact-cta__heading'>Let's build something great</h2>
+      <p class='contact-cta__body'>
+        I'm currently available for new roles. If you need a developer with a
+        strong design sensibility and a track record of shipping quality code,
+        let's talk.
+      </p>
+      <a href='mailto:antonemery@gmail.com' class='btn btn--primary'
+        >antonemery@gmail.com</a
+      >
+    </div>
+  </section>
+</Layout>

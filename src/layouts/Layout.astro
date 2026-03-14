@@ -1,0 +1,61 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  keywords: string;
+}
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+const { title, description, keywords } = Astro.props;
+
+import '../styles/styles.scss';
+
+// Headings
+import '@fontsource/lusitana/400.css';
+import '@fontsource/lusitana/700.css';
+
+// Body
+import '@fontsource/hind-vadodara/300.css';
+import '@fontsource/hind-vadodara/400.css';
+import '@fontsource/hind-vadodara/500.css';
+import '@fontsource/hind-vadodara/600.css';
+---
+
+<!doctype html>
+<html lang='en'>
+  <head>
+    <meta charset='UTF-8' />
+    <meta name='description' content={description} />
+    <meta name='keywords' content={keywords} />
+    <meta name='author' content='Anton Emery' />
+    <meta name='viewport' content='width=device-width, initial-scale=1' />
+    <meta property='og:title' content={title} />
+    <meta property='og:description' content={description} />
+    <meta property='og:type' content='website' />
+    <meta property='og:url' content='https://www.antonemery.com' />
+    <link
+      href='https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap'
+      rel='stylesheet'
+    />
+    <link rel='icon' type='image/svg+xml' href='/favicon.svg' />
+    <meta name='generator' content={Astro.generator} />
+    <title>{title}</title>
+    <style is:inline>
+      *,::after,::before{box-sizing:border-box}html{line-height:1.15;-webkit-text-size-adjust:100%;tab-size:4}body{margin:0}
+    </style>
+    <script is:inline>
+      (function() {
+        var saved = localStorage.getItem('theme');
+        var system = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+        document.documentElement.dataset.theme = saved || system;
+      })();
+    </script>
+  </head>
+  <body>
+    <div class='site-root'>
+      <Nav />
+      <slot />
+      <Footer />
+    </div>
+  </body>
+</html>

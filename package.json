@@ -1,0 +1,23 @@
+{
+  "name": "astro-website-rebuild",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/mdx": "^4.3.13",
+    "@fontsource/hind-vadodara": "^5.0.18",
+    "@fontsource/lusitana": "^5.0.8",
+    "@fontsource/mallanna": "^5.0.8",
+    "astro": "^5.18.0",
+    "sass": "^1.68.0"
+  },
+  "devDependencies": {
+    "prettier-plugin-astro": "^0.12.2"
+  }
+}

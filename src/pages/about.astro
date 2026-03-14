@@ -1,0 +1,191 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { Image } from 'astro:assets';
+import imgGuitar from '../assets/backyard-guitar.jpg';
+import imgBoat from '../assets/anton-boat.jpg';
+import imgBiking from '../assets/anton-mtn-biking.jpg';
+
+const strengths = [
+  {
+    title: 'Enthusiastic Mentor',
+    icon: '01',
+    desc: "I enjoy mentoring interns and junior engineers, helping them build confidence and good habits early. My teammates count on clear communication and thorough documentation. Whether that's onboarding guides, technical write-ups, or async updates for distributed teams.",
+  },
+  {
+    title: 'Motivated Learner',
+    icon: '02',
+    desc: 'Web development is a constantly evolving field. I have confidence in my ability to learn quickly, pick up new technologies, and proactively tackle new problems.',
+  },
+  {
+    title: 'Attention to Detail',
+    icon: '03',
+    desc: 'I take pride in precisely matching design specs and testing edge cases thoroughly. I enjoy cross collaborating with designers and product managers to make sure the details are right. I care about the experience of the next engineer who works with my code.',
+  },
+  {
+    title: 'Positive Collaborator',
+    icon: '04',
+    desc: 'I bring positivity and composure to every team interaction. I seek out patience and gumption in my teammates and try to model those qualities myself.',
+  },
+];
+
+const tools = [
+  { category: 'Task Management', items: ['Jira', 'Linear'] },
+  { category: 'Documentation', items: ['Confluence'] },
+  { category: 'Preferred IDE', items: ['VS Code'] },
+  { category: 'AI Integration', items: ['Copilot', 'ChatGPT'] },
+  { category: 'Versioning', items: ['Git'] },
+  { category: 'Collaboration', items: ['Slack', 'Zoom'] },
+  { category: 'Error Tracking', items: ['Sentry', 'Airbrake'] },
+  { category: 'Error Logging', items: ['Datadog'] },
+];
+---
+
+<Layout
+  title='Anton Emery | About'
+  description='About Anton Emery — Web Developer based in Portland, Oregon. React, TypeScript, design systems.'
+  keywords='about, front end developer, portland, oregon, react, design systems'
+>
+  <div class='page-header'>
+    <div class='page-header__inner'>
+      <p class='section-label'>Who I Am</p>
+      <h1 class='page-header__title'>About</h1>
+    </div>
+  </div>
+
+  <main class='about-main'>
+    <div class='about-main__inner'>
+      <!-- Bio -->
+      <section class='bio'>
+        <div class='bio__text'>
+          <h2 class='bio__heading'>Anton Emery</h2>
+          <p class='bio__role'>Web Developer &#183; Portland, OR</p>
+          <p class='bio__body'>
+            Over eight years of professional web development has taught me that
+            the best code isn't just correct. It's clear, maintainable, and
+            considerate of the next person who has to work with it. That
+            philosophy shapes everything I build.
+          </p>
+          <p class='bio__body'>
+            I love working on "the back of the front end", building and
+            maintaining a pixel-perfect, flexible, and heavily-tested library of
+            design system components. I care deeply about the craft of
+            engineering: clean architecture, maintainable CSS, and thoughtful
+            API design.
+          </p>
+          <p class='bio__body'>
+            Outside of code, I'm a folk and roots musician. I play Celtic, old
+            time, bluegrass, and folk across several instruments, and I've
+            self-released <a
+              href='http://www.celticfingerstyleguitar.com/albums/'
+              target='_blank'
+              rel='noopener noreferrer'>two solo guitar albums</a
+            >. Music and software scratch the same itch for me: both are about
+            finding the elegant solution inside a set of constraints, and caring
+            enough to get the details right.
+          </p>
+          <p class='bio__body'>
+            When I am not playing music I enjoy being active. I train Brazilian
+            jiu-jitsu and judo, and get out on the mountain bike whenever the
+            Pacific Northwest weather cooperates. I grew up sailing the
+            Caribbean on a boat with my family, which is probably where I
+            developed a taste for problem-solving in tight quarters and a
+            comfort with figuring things out as you go.
+          </p>
+          <div class='bio__links'>
+            <a href='mailto:antonemery@gmail.com' class='btn btn--primary'
+              >Get in Touch</a
+            >
+            <a
+              href='https://www.linkedin.com/in/antonemery/'
+              target='_blank'
+              rel='noopener noreferrer'
+              class='btn btn--outline'>LinkedIn</a
+            >
+            <a
+              href='/anton-emery-resume.pdf'
+              target='_blank'
+              rel='noopener noreferrer'
+              class='btn btn--outline'>Resume ↓</a
+            >
+          </div>
+        </div>
+        <aside class='bio__details'>
+          <div class='detail-card'>
+            <p class='detail-card__label'>Education</p>
+            <p class='detail-card__value'>Florida State University</p>
+            <p class='detail-card__sub'>B.S. Information Technology</p>
+          </div>
+          <div class='detail-card'>
+            <p class='detail-card__label'>Location</p>
+            <p class='detail-card__value'>Portland, Oregon</p>
+          </div>
+          <div class='detail-card'>
+            <p class='detail-card__label'>Email</p>
+            <a href='mailto:antonemery@gmail.com' class='detail-card__link'
+              >antonemery@gmail.com</a
+            >
+          </div>
+          <div class='detail-card'>
+            <p class='detail-card__label'>Also</p>
+            <a
+              href='https://celticfingerstyleguitar.com'
+              target='_blank'
+              rel='noopener noreferrer'
+              class='detail-card__link'>celticfingerstyleguitar.com</a
+            >
+          </div>
+        </aside>
+      </section>
+
+      <!-- Photo Grid -->
+      <div class='bio-photos'>
+        <div class='bio-photos__item'>
+          <Image src={imgGuitar} alt='Anton playing guitar in the backyard' />
+        </div>
+        <div class='bio-photos__item bio-photos__item--boat'>
+          <Image src={imgBoat} alt='Anton on a boat' />
+        </div>
+        <div class='bio-photos__item'>
+          <Image src={imgBiking} alt='Anton mountain biking' />
+        </div>
+      </div>
+
+      <!-- Strengths -->
+      <section class='strengths'>
+        <p class='section-label'>Strengths</p>
+        <div class='strengths__grid'>
+          {
+            strengths.map((s) => (
+              <div class='strength-card'>
+                <span class='strength-card__num' aria-hidden='true'>
+                  {s.icon}
+                </span>
+                <h3 class='strength-card__title'>{s.title}</h3>
+                <p class='strength-card__desc'>{s.desc}</p>
+              </div>
+            ))
+          }
+        </div>
+      </section>
+
+      <!-- Tools -->
+      <section class='tools'>
+        <p class='section-label'>Tools &#38; Environment</p>
+        <div class='tools__grid'>
+          {
+            tools.map((t) => (
+              <div class='tool-row'>
+                <span class='tool-row__category'>{t.category}</span>
+                <div class='tool-row__items'>
+                  {t.items.map((item) => (
+                    <span class='tag'>{item}</span>
+                  ))}
+                </div>
+              </div>
+            ))
+          }
+        </div>
+      </section>
+    </div>
+  </main>
+</Layout>

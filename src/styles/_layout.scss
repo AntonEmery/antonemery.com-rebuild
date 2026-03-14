@@ -1,0 +1,10 @@
+.site-content-width {
+  width: 100%;
+  max-width: var(--site-content-width);
+  margin: 0 auto;
+  padding: 0 2rem;
+
+  @media (min-width: $desktop-upper-limit) {
+    padding: 0 3rem;
+  }
+}

@@ -1,0 +1,242 @@
+@import "_variables.scss";
+@import "_breakpoints.scss";
+@import "_nav.scss";
+@import "_footer.scss";
+@import "_layout.scss";
+@import "_type.scss";
+@import "_pages.scss";
+@import "_home.scss";
+@import "_work.scss";
+@import "_about.scss";
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+:root {
+  // Dark theme colors (default)
+  --color-bg: #0C0C0F;
+  --color-surface: #141417;
+  --color-surface-2: #1E1E22;
+  --color-border: #272730;
+  --color-text: #F0EDE4;
+  --color-text-muted: #B0AFB8;
+  --color-text-subtle: #78777F;
+  --color-accent: #C8973A;
+  --color-accent-hover: #DDA84C;
+  --color-accent-dim: rgba(200, 151, 58, 0.12);
+  --color-link-inline: #E8A84A;
+  --color-link-inline-hover: #F0C070;
+  --color-link-inline-underline: rgba(232, 168, 74, 0.4);
+  --nav-blur-bg: rgba(12, 12, 15, 0.95);
+  --shadow-card: 0 32px 64px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.03);
+
+  // Fonts
+  --font-display: 'Lusitana', Georgia, serif;
+  --font-body: 'Hind Vadodara', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  // Fluid type scale
+  --font-size-xs:      clamp(0.7rem,  0.15vw + 0.66rem, 0.8rem);
+  --font-size-sm:      clamp(0.8rem,  0.17vw + 0.76rem, 0.875rem);
+  --font-size-base:    clamp(0.95rem, 0.3vw  + 0.88rem, 1.0625rem);
+  --font-size-md:      clamp(1.1rem,  0.5vw  + 0.95rem, 1.25rem);
+  --font-size-lg:      clamp(1.25rem, 0.8vw  + 1rem,    1.625rem);
+  --font-size-xl:      clamp(1.5rem,  1.5vw  + 1.1rem,  2.125rem);
+  --font-size-xxl:     clamp(2rem,    2.5vw  + 1.4rem,  3rem);
+  --font-size-xxxl:    clamp(2.75rem, 5vw    + 1.5rem,  5.5rem);
+  --font-size-display: clamp(3.5rem,  8vw,               7rem);
+
+  // Line heights
+  --line-height-tight:   0.9;   // large display headings
+  --line-height-snug:    1.2;   // subheadings
+  --line-height-normal:  1.65;  // body text
+  --line-height-relaxed: 1.75;  // comfortable reading paragraphs
+
+  // Layout
+  --site-nav-height: 4.5rem;
+  --site-content-width: 1200px;
+
+  // Misc
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 14px;
+  --transition: 0.2s ease;
+
+}
+
+[data-theme="light"] {
+  --color-bg: #F6F3EE;
+  --color-surface: #EDEAE4;
+  --color-surface-2: #E3DFD8;
+  --color-border: #D2CDC5;
+  --color-text: #1A1814;
+  --color-text-muted: #3A3733;
+  --color-text-subtle: #706C68;
+  --color-accent: #A8762A;
+  --color-accent-hover: #C4893A;
+  --color-accent-dim: rgba(168, 118, 42, 0.1);
+  --color-link-inline: #8A5A10;
+  --color-link-inline-hover: #6B4208;
+  --color-link-inline-underline: rgba(138, 90, 16, 0.4);
+  --nav-blur-bg: rgba(246, 243, 238, 0.95);
+  --shadow-card: 0 8px 32px rgba(0, 0, 0, 0.08), 0 0 0 1px rgba(0, 0, 0, 0.04);
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  font-size: var(--font-size-base);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.site-root {
+  container-name: site-root-container;
+  container-type: inline-size;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+
+  &--popup-open {
+    height: 100vh;
+    overflow: hidden;
+
+    &::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.75);
+      z-index: 100;
+      pointer-events: none;
+    }
+  }
+}
+
+a {
+  color: var(--color-accent);
+  text-decoration: none;
+  transition: color var(--transition);
+
+  &:hover {
+    color: var(--color-accent-hover);
+  }
+}
+
+p a {
+  color: var(--color-link-inline);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-color: var(--color-link-inline-underline);
+  transition: color var(--transition), text-decoration-color var(--transition);
+
+  &:hover {
+    color: var(--color-link-inline-hover);
+    text-decoration-color: var(--color-link-inline-hover);
+  }
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+// ── Shared utility classes ──────────────────────────────────
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1.75rem;
+  font-family: var(--font-body);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  border-radius: var(--radius-sm);
+  transition: all var(--transition);
+  cursor: pointer;
+  text-decoration: none;
+  border: 1.5px solid transparent;
+  line-height: 1;
+
+  &--primary {
+    background: var(--color-accent);
+    color: #0C0C0F;
+    border-color: var(--color-accent);
+
+    &:hover {
+      background: var(--color-accent-hover);
+      border-color: var(--color-accent-hover);
+      color: #0C0C0F;
+    }
+  }
+
+  &--outline {
+    background: transparent;
+    color: var(--color-text);
+    border-color: var(--color-border);
+
+    &:hover {
+      border-color: var(--color-text-muted);
+      color: var(--color-text);
+    }
+  }
+}
+
+.tag {
+  background: var(--color-surface-2);
+  border: 1px solid var(--color-border);
+  color: var(--color-text-muted);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  padding: 0.25rem 0.625rem;
+  border-radius: 2px;
+  display: inline-block;
+}
+
+.chip {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  padding: 0.5rem 1rem;
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  color: var(--color-text-muted);
+  transition: all var(--transition);
+  display: inline-block;
+
+  &:hover {
+    border-color: var(--color-accent);
+    color: var(--color-text);
+  }
+}
+
+.section-label {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--color-accent);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin-bottom: 1.5rem;
+  display: block;
+
+  &::before {
+    content: '// ';
+    opacity: 0.5;
+  }
+}
