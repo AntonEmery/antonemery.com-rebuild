@@ -22,3 +22,5 @@ pnpm-debug.log*
 
 public/audio
 public/tabs
+
+resume.txt
